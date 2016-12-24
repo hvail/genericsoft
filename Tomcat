@@ -9,7 +9,7 @@ RUN ls -aF
 RUN ls -aF conf
 
 # RUN rm /etc/local/tomcat/conf/server.xml
-RUN cp server.xml /etc/local/tomcat/conf/server.xml
+RUN cp -f server.xml /etc/local/tomcat/conf/server.xml
 
 RUN echo 'stop tomcat'
 # RUN sh /etc/local/tomcat/bin/shutdown.sh
