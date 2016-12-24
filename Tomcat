@@ -1,9 +1,12 @@
-FROM tomcat:8.5.9
+FROM tomcat:7-jre8
 
 RUN ls -aF /usr/local/tomcat
 
 RUN echo 'download new server.xml'
 RUN wget http://global-conf.oss-cn-shenzhen.aliyuncs.com/tomcat/server.xml
+
+RUN rm /etc/local/tomcat/conf/server.xml
+RUN cp server.xml /etc/local/tomcat/conf/server.xml
 
 RUN echo 'stop tomcat'
 # RUN sh /etc/local/tomcat/bin/shutdown.sh
