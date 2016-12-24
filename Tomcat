@@ -6,6 +6,7 @@ RUN echo 'download new server.xml'
 RUN wget http://global-conf.oss-cn-shenzhen.aliyuncs.com/tomcat/server.xml
 
 RUN ls -aF
+RUN ls -aF conf
 
 # RUN rm /etc/local/tomcat/conf/server.xml
 RUN cp server.xml /etc/local/tomcat/conf/server.xml
