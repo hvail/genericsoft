@@ -3,7 +3,7 @@ FROM tomcat:8.5.9
 RUN ls -aF /usr/local/tomcat
 
 RUN echo 'download new server.xml'
-RUN wget -N http://global-conf.oss-cn-shenzhen.aliyuncs.com/tomcat/server.xml /usr/local/tomcat/conf/server.xml
+RUN wget http://global-conf.oss-cn-shenzhen.aliyuncs.com/tomcat/server.xml
 
 RUN echo 'stop tomcat'
 RUN sh /etc/local/tomcat/bin/shutdown.sh
