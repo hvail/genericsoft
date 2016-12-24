@@ -6,9 +6,9 @@ RUN echo 'download new server.xml'
 RUN wget http://global-conf.oss-cn-shenzhen.aliyuncs.com/tomcat/server.xml
 
 RUN echo 'stop tomcat'
-RUN sh /etc/local/tomcat/bin/shutdown.sh
+# RUN sh /etc/local/tomcat/bin/shutdown.sh
 
 RUN echo 'start tomcat'
-RUN sh /etc/local/tomcat/bin/startup.sh
+# RUN sh /etc/local/tomcat/bin/startup.sh
 
 CMD ["/bin/bash","-C"]
