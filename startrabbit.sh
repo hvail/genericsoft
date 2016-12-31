@@ -22,10 +22,10 @@ change_default_user() {
 
 if [ -z "$CLUSTERED" ]; then
 	# if not clustered then start it normally as if it is a single server
-	/usr/sbin/rabbitmq-server &
-	rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
-	change_default_user	
-	tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
+	/usr/sbin/rabbitmq-server start
+	# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
+	# change_default_user	
+	# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
 else
 	if [ -z "$CLUSTER_WITH" ]; then
 		# If clustered, but cluster with is not specified then again start normally, could be the first server in the
