@@ -23,8 +23,8 @@ change_default_user() {
 if [ -z "$CLUSTERED" ]; then
 	# if not clustered then start it normally as if it is a single server
 	echo 'Start Rabbitmq Server'
-	rabbitmq-server start
-	rabbitmqctl status
+	# rabbitmq-server start
+	# rabbitmqctl status
 	# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 	# change_default_user	
 	# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
@@ -32,12 +32,12 @@ else
 	if [ -z "$CLUSTER_WITH" ]; then
 		# If clustered, but cluster with is not specified then again start normally, could be the first server in the
 		# cluster
-		/usr/sbin/rabbitmq-server&
-		rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
-		tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
+		# /usr/sbin/rabbitmq-server&
+		# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
+		# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
 	else
-		/usr/sbin/rabbitmq-server &
-		rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
+		# /usr/sbin/rabbitmq-server &
+		# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 		rabbitmqctl stop_app
 		if [ -z "$RAM_NODE" ]; then
 			rabbitmqctl join_cluster rabbit@$CLUSTER_WITH
@@ -47,7 +47,7 @@ else
 		rabbitmqctl start_app
                 
 		# Tail to keep the a foreground process active..
-		tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
+		# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
 	fi
 fi
 
