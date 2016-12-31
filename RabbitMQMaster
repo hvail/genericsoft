@@ -32,6 +32,6 @@ RUN mkdir /opt/rabbit
 ADD startrabbit.sh /opt/rabbit/
 RUN chmod a+x /opt/rabbit/startrabbit.sh
 
-RUN rabbitmq-server start
+# RUN rabbitmq-server start
 
 CMD ["/opt/rabbit/startrabbit.sh"]
