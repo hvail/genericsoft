@@ -16,7 +16,7 @@ RUN cat /etc/passwd
 ADD .erlang.cookie /var/lib/rabbitmq/.erlang.cookie
 
 RUN chown -R rabbitmq:rabbitmq /var/lib/rabbitmq
-RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
+# RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
 
 RUN ls -al /var/lib/rabbitmq/
 
