@@ -13,7 +13,7 @@ MAINTAINER hvail "415195993@qq.com"
 # RUN chmod u+rw /etc/rabbitmq/rabbitmq.config
 
 RUN cat /etc/passwd
-ADD .erlang.cookie /var/lib/rabbitmq/.erlang.cookie
+ADD .erlang.cookie /var/lib/rabbitmq/.erlang.cookie__
 
 RUN chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
 RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
