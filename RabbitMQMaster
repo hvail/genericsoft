@@ -13,7 +13,7 @@ ADD rabbitmq.config /etc/rabbitmq/
 
 RUN ls -aF /var/lib/rabbitmq
 RUN chmod u+rw /etc/rabbitmq/rabbitmq.config
-
+RUN ls
 RUN cp erlang.cookie /var/lib/rabbitmq/.erlang.cookie
 
 RUN chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
