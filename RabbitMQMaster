@@ -22,7 +22,7 @@ RUN chmod u+rw /etc/rabbitmq/rabbitmq.config
 # RUN chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
 # RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
 
-# RUN ls -al /var/lib/rabbitmq/
+RUN ls -al /var/lib/rabbitmq/
 
 # RUN chmod -w /var/lib/rabbitmq/.erlang.cookie
 # RUN chmod g-r /var/lib/rabbitmq/.erlang.cookie
