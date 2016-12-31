@@ -14,9 +14,10 @@ ADD rabbitmq.config /etc/rabbitmq/
 RUN chmod u+rw /etc/rabbitmq/rabbitmq.config
 
 RUN cat /etc/passwd
-ADD .erlang.cookie /var/lib/rabbitmq/
+ADD .erlang.cookie /var/lib/rabbitmq/.erlang.cookie
 
 RUN chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
+RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
 # RUN chmod -w /var/lib/rabbitmq/.erlang.cookie
 # RUN chmod g-r /var/lib/rabbitmq/.erlang.cookie
 # RUN chmod o-r /var/lib/rabbitmq/.erlang.cookie
