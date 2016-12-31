@@ -18,4 +18,6 @@ ADD erlang.cookie /var/lib/rabbitmq/.erlang.cookie
 
 RUN chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
 
+ADD startrabbit.sh /opt/rabbit/
+
 CMD /opt/rabbit/startrabbit.sh
