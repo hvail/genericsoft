@@ -45,16 +45,17 @@ else
 		rabbitmq-server
 	else
 		echo 'NOT CLUSTER_WITH EXISTS'
+		/usr/sbin/rabbitmq-server & rabbitmqctl wait
 		# /usr/sbin/rabbitmq-server &
 		# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 		# rabbitmq-server -detached
 		# rabbitmqctl cluster_status
-		# rabbitmqctl stop_app
+		rabbitmqctl stop_app
 		if [ -z "$RAM_NODE" ]; then
-			echo 'RAM MODE'
+			echo 'NOT RAM MODE'
 			rabbitmqctl join_cluster rabbit@$CLUSTER_WITH
 		else
-			echo 'NOT RAM MODE'
+			echo 'RAM MODE'
 			rabbitmqctl join_cluster --ram rabbit@$CLUSTER_WITH
 		fi
 		rabbitmqctl start_app
