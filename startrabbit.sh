@@ -50,6 +50,7 @@ else
 		echo 'add to ${CLUSTER_WITH}'
 		# rabbitmq-server -detached
 		rabbitmqctl stop_app
+		rabbitmqctl reset
 		if [ -z "$RAM_NODE" ]; then
 			rabbitmqctl join_cluster rabbit@$CLUSTER_WITH
 		else
