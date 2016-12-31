@@ -11,8 +11,8 @@ RUN rabbitmq-plugins enable --offline rabbitmq_management
 EXPOSE 15671 15672
 
 
-# ADD rabbitmq.config /etc/rabbitmq/
-# RUN chmod u+rw /etc/rabbitmq/rabbitmq.config
+ADD rabbitmq.config /etc/rabbitmq/
+RUN chmod u+rw /etc/rabbitmq/rabbitmq.config
 
 # RUN cat /etc/passwd
 # ADD .erlang.cookie /var/lib/rabbitmq/.erlang.cookie
