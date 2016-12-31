@@ -9,9 +9,8 @@ FROM rabbitmq:3.6.6-management
 # Ç©Ãû
 MAINTAINER hvail "415195993@qq.com"
 
-ADD rabbitmq.config /etc/rabbitmq/
-
-RUN chmod u+rw /etc/rabbitmq/rabbitmq.config
+# ADD rabbitmq.config /etc/rabbitmq/
+# RUN chmod u+rw /etc/rabbitmq/rabbitmq.config
 
 RUN cat /etc/passwd
 ADD .erlang.cookie /var/lib/rabbitmq/.erlang.cookie
@@ -19,7 +18,7 @@ ADD .erlang.cookie /var/lib/rabbitmq/.erlang.cookie
 RUN chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
 RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
 
-RUN ll -al /var/lib/rabbitmq/
+RUN ls -al /var/lib/rabbitmq/
 
 # RUN chmod -w /var/lib/rabbitmq/.erlang.cookie
 # RUN chmod g-r /var/lib/rabbitmq/.erlang.cookie
