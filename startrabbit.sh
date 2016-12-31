@@ -42,6 +42,7 @@ else
 	else
 		# /usr/sbin/rabbitmq-server &
 		# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
+		echo 'add to ${CLUSTER_WITH}'
 		rabbitmqctl stop_app
 		if [ -z "$RAM_NODE" ]; then
 			rabbitmqctl join_cluster rabbit@$CLUSTER_WITH
