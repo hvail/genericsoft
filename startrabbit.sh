@@ -47,14 +47,15 @@ else
 		echo 'NOT CLUSTER_WITH EXISTS'
 		# /usr/sbin/rabbitmq-server &
 		# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
-		echo 'add to ${CLUSTER_WITH}'
 		# rabbitmq-server -detached
+		rabbitmqctl cluster_status
 		rabbitmqctl stop_app
-		rabbitmqctl reset
 		if [ -z "$RAM_NODE" ]; then
-			rabbitmqctl join_cluster rabbit@$CLUSTER_WITH
+			echo 'RAM MODE'
+			rabbitmqctl cluster rabbit@$CLUSTER_WITH
 		else
-			rabbitmqctl join_cluster --ram rabbit@$CLUSTER_WITH
+			echo 'NOT RAM MODE'
+			rabbitmqctl cluster --ram rabbit@$CLUSTER_WITH
 		fi
 		rabbitmqctl start_app
                 
