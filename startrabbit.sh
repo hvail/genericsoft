@@ -1,5 +1,9 @@
 #!/bin/bash
 
+RABBITMQ_DEFAULT_USER=`env username`
+RABBITMQ_DEFAULT_PASS=`env passowrd`
+HOSTNAME=`env hostname`
+
 change_default_user() {	
 	if [ -z $RABBITMQ_DEFAULT_USER ] && [ -z $RABBITMQ_DEFAULT_PASS ]; then
 		echo "Maintaining default 'guest' user"
@@ -11,8 +15,6 @@ change_default_user() {
 		rabbitmqctl set_permissions -p / $RABBITMQ_DEFAULT_USER ".*" ".*" ".*"
 	fi
 }
-
-HOSTNAME=`env hostname`
 
 if [ -z "$CLUSTERED" ]; then
 	# if not clustered then start it normally as if it is a single server
