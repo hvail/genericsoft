@@ -6,6 +6,7 @@ HOSTNAME=`env hostname`
 
 echo $RABBITMQ_DEFAULT_USER
 echo $RABBITMQ_DEFAULT_PASS
+echo $HOSTNAME
 
 change_default_user() {	
 	if [ -z $RABBITMQ_DEFAULT_USER ] && [ -z $RABBITMQ_DEFAULT_PASS ]; then
