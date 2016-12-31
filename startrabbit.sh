@@ -1,7 +1,7 @@
 #!/bin/bash
 
-RABBITMQ_DEFAULT_USER=`env username`
-RABBITMQ_DEFAULT_PASS=`env password`
+# RABBITMQ_DEFAULT_USER=`env username`
+# RABBITMQ_DEFAULT_PASS=`env password`
 HOSTNAME=`env hostname`
 
 echo $RABBITMQ_DEFAULT_USER
