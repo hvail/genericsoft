@@ -28,4 +28,4 @@ RUN mkdir /opt/rabbit
 ADD startrabbit.sh /opt/rabbit/
 RUN chmod a+x /opt/rabbit/startrabbit.sh
 
-CMD /opt/rabbit/startrabbit.sh
+CMD ["/bin/sh","-c"]
