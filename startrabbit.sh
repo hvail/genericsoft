@@ -28,6 +28,7 @@ if [ -z "$CLUSTERED" ]; then
 	# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 	# change_default_user	
 	# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
+	rabbitmq-server
 else
 	if [ -z "$CLUSTER_WITH" ]; then
 		# If clustered, but cluster with is not specified then again start normally, could be the first server in the
@@ -35,6 +36,7 @@ else
 		# /usr/sbin/rabbitmq-server&
 		# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 		# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
+		rabbitmq-server
 	else
 		# /usr/sbin/rabbitmq-server &
 		# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
