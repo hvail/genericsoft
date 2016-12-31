@@ -2,8 +2,8 @@
 
 # RABBITMQ_DEFAULT_USER=`env username`
 # RABBITMQ_DEFAULT_PASS=`env password`
+# CLUSTER_WITH=`env CLUSTER_WITH`
 HOSTNAME=`env hostname`
-CLUSTER_WITH=`env CLUSTER_WITH`
 
 echo $RABBITMQ_DEFAULT_USER
 echo $RABBITMQ_DEFAULT_PASS
@@ -34,7 +34,9 @@ if [ -z "$CLUSTERED" ]; then
 	change_default_user	
 	rabbitmq-server
 else
+	echo 'Start Rabbitmq CLUSTER'
 	if [ -z "$CLUSTER_WITH" ]; then
+		echo 'CLUSTER_WITH EXISTS'
 		# If clustered, but cluster with is not specified then again start normally, could be the first server in the
 		# cluster
 		# /usr/sbin/rabbitmq-server&
@@ -42,10 +44,11 @@ else
 		# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
 		rabbitmq-server
 	else
+		echo 'NOT CLUSTER_WITH EXISTS'
 		# /usr/sbin/rabbitmq-server &
 		# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 		echo 'add to ${CLUSTER_WITH}'
-		rabbitmq-server -detached
+		# rabbitmq-server -detached
 		rabbitmqctl stop_app
 		if [ -z "$RAM_NODE" ]; then
 			rabbitmqctl join_cluster rabbit@$CLUSTER_WITH
