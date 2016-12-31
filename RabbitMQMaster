@@ -28,4 +28,4 @@ RUN ls -al /var/lib/rabbitmq/
 # ADD startrabbit.sh /opt/rabbit/
 # RUN chmod a+x /opt/rabbit/startrabbit.sh
 
-CMD ["/bin/sh","-c","top"]
+CMD ["/bin/sh","-c","rabbitmq-server start"]
