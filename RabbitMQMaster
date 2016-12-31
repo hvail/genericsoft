@@ -1,4 +1,4 @@
-# AACDEAFECDABFDSEEEAC  .erlang.cookie
+# AACDEAFECDABFDSEEEAC .erlang.cookie
 
 # VERSION 1.0.0.1
 # ×÷Õß£º»Æ¿¡½Ü
@@ -13,6 +13,7 @@ ADD rabbitmq.config /etc/rabbitmq/
 
 RUN chmod u+rw /etc/rabbitmq/rabbitmq.config
 
+RUN cat /etc/passwd
 ADD .erlang.cookie /var/lib/rabbitmq/
 
 RUN chmod 600 /var/lib/rabbitmq/.erlang.cookie
