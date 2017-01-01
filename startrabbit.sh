@@ -38,12 +38,12 @@ else
 	if [ -z "$CLUSTER_WITH" ]; then
 		# If clustered, but cluster with is not specified then again start normally, could be the first server in the
 		# cluster
-		rabbitmq-server &
-		rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
+		rabbitmq-server 
+		#& rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 		# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
 	else
-		/usr/sbin/rabbitmq-server &
-		rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
+		rabbitmq-server
+		# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 		rabbitmqctl stop_app
 		if [ -z "$RAM_NODE" ]; then
 			rabbitmqctl join_cluster rabbit@$CLUSTER_WITH
