@@ -30,7 +30,7 @@ ls -al /var/lib/rabbitmq/
 
 if [ -z "$CLUSTERED" ]; then
 	# if not clustered then start it normally as if it is a single server
-	/usr/sbin/rabbitmq-server &
+	rabbitmq-server &
 	rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 	change_default_user	
 	tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
@@ -38,9 +38,9 @@ else
 	if [ -z "$CLUSTER_WITH" ]; then
 		# If clustered, but cluster with is not specified then again start normally, could be the first server in the
 		# cluster
-		/usr/sbin/rabbitmq-server&
+		rabbitmq-server &
 		rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
-		tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
+		# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
 	else
 		/usr/sbin/rabbitmq-server &
 		rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
@@ -53,7 +53,7 @@ else
 		rabbitmqctl start_app
                 
 		# Tail to keep the a foreground process active..
-		tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
+		# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
 	fi
 fi
 
