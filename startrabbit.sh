@@ -24,6 +24,10 @@ change_default_user() {
 	fi
 }
 
+chmod 400 /var/lib/rabbitmq/.erlang.cookie
+chown -R rabbitmq /var/lib/rabbitmq/
+ls -al /var/lib/rabbitmq/
+
 if [ -z "$CLUSTERED" ]; then
 	# if not clustered then start it normally as if it is a single server
 	echo 'Start Rabbitmq Server'

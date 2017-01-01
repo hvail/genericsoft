@@ -24,10 +24,6 @@ RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
 
 RUN ls -al /var/lib/rabbitmq/
 
-# RUN chmod -w /var/lib/rabbitmq/.erlang.cookie
-# RUN chmod g-r /var/lib/rabbitmq/.erlang.cookie
-# RUN chmod o-r /var/lib/rabbitmq/.erlang.cookie
-
 RUN mkdir /opt/rabbit
 ADD startrabbit.sh /opt/rabbit/
 RUN chmod a+x /opt/rabbit/startrabbit.sh
