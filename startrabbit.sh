@@ -64,6 +64,7 @@ else
 			rabbitmqctl join_cluster --ram rabbit@$CLUSTER_WITH
 		fi
 		rabbitmqctl start_app
+		rabbitmq-server
                 
 		# Tail to keep the a foreground process active..
 		# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
