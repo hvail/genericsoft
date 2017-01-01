@@ -49,9 +49,9 @@ else
 		/usr/sbin/rabbitmq-server &
 		rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 		rabbitmq-server -detached
-		rabbitmqctl cluster_status
+		# rabbitmqctl cluster_status
 		rabbitmqctl stop_app
-		rabbitmqctl reset
+		# rabbitmqctl reset
 		if [ -z "$RAM_NODE" ]; then
 			echo 'NOT RAM MODE'
 			rabbitmqctl join_cluster rabbit@$CLUSTER_WITH
