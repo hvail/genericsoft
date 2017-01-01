@@ -30,10 +30,11 @@ ls -al /var/lib/rabbitmq/
 
 if [ -z "$CLUSTERED" ]; then
 	# if not clustered then start it normally as if it is a single server
-	rabbitmq-server &
-	rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
+	# rabbitmq-server &
+	# rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 	change_default_user	
-	tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
+	# tail -f /var/log/rabbitmq/rabbit\@$HOSTNAME.log
+	rabbitmq-server
 else
 	if [ -z "$CLUSTER_WITH" ]; then
 		# If clustered, but cluster with is not specified then again start normally, could be the first server in the
