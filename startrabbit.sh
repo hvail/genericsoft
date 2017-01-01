@@ -51,8 +51,7 @@ else
 		echo 'NOT CLUSTER_WITH EXISTS'
 		# /usr/sbin/rabbitmq-server & rabbitmqctl wait
 		/usr/sbin/rabbitmq-server &
-		rabbitmqctl wait 
-		# /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
+		rabbitmqctl wait /var/lib/rabbitmq/mnesia/rabbit\@$HOSTNAME.pid
 		rabbitmq-server -detached
 		# rabbitmqctl cluster_status
 		rabbitmqctl stop_app
