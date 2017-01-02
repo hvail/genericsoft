@@ -1,0 +1,10 @@
+FROM haproxy
+
+# Ç©Ãû
+MAINTAINER hvail "415195993@qq.com"
+
+ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy.cfg
+
+EXPOSE 3389
+
+ENTRYPOINT haproxy -c -f /usr/local/etc/haproxy.cfg
