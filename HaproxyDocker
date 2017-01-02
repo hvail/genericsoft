@@ -8,12 +8,15 @@ RUN useradd -g haproxy haproxy
 RUN id haproxy
 
 RUN mkdir /usr/share/haproxy
-RUN chown haproxy:haproxy /usr/lib/haproxy
-RUN chmod 777 /usr/lib/haproxy
+RUN mkdir /var/lib/haproxy
+RUN chown haproxy:haproxy /usr/share/haproxy
+RUN chmod 777 /usr/share/haproxy
 
 ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
 EXPOSE 3389
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
+RUN chown haproxy:haproxy /var/lib/haproxy
+RUN chmod 777 /var/lib/haproxy
 CMD ["/usr/local/sbin/haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
