@@ -11,5 +11,5 @@ ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
 EXPOSE 3389
 
-# ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/usr/local/sbin/haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
