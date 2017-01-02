@@ -12,8 +12,10 @@ RUN chown haproxy:haproxy /usr/share/haproxy
 RUN chmod 777 /usr/share/haproxy
 
 RUN mkdir /var/lib/haproxy
-RUN chown haproxy:haproxy /var/lib/haproxy
+RUN mkdir /var/lib/haproxy/log
+RUN chown -R haproxy:haproxy /var/lib/haproxy
 RUN chmod 777 /var/lib/haproxy
+
 
 ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
