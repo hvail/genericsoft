@@ -3,6 +3,8 @@ FROM haproxy
 # Ç©Ãû
 MAINTAINER hvail "415195993@qq.com"
 
+RUN useradd -g haproxy haproxy
+
 ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy.cfg
 
 EXPOSE 3389
