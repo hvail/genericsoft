@@ -8,6 +8,8 @@ RUN useradd -g haproxy haproxy
 RUN id haproxy
 
 RUN mkdir /usr/share/haproxy
+RUN chown haproxy:haproxy /var/lib/haproxy
+RUN chmod 777 /var/lib/haproxy
 
 ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
