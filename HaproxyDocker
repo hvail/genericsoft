@@ -1,4 +1,4 @@
-FROM haproxy
+FROM haproxy:1.4
 
 # Ç©Ãû
 MAINTAINER hvail "415195993@qq.com"
