@@ -16,11 +16,9 @@ RUN mkdir /var/lib/haproxy/log
 RUN chown -R haproxy:haproxy /var/lib/haproxy
 RUN chmod 777 /var/lib/haproxy
 
-# RUN tail /etc/rsyslog.conf
-
 ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
 EXPOSE 3389
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["/usr/local/sbin/haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
+CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
