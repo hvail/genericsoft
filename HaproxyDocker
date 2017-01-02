@@ -7,6 +7,8 @@ RUN groupadd haproxy
 RUN useradd -g haproxy haproxy
 RUN id haproxy
 
+RUN mkdir /usr/share/haproxy
+
 ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
 EXPOSE 3389
