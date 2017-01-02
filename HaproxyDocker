@@ -1,4 +1,4 @@
-FROM haproxy:1.4
+FROM haproxy
 
 # Ç©Ãû
 MAINTAINER hvail "415195993@qq.com"
@@ -7,9 +7,9 @@ RUN groupadd haproxy
 RUN useradd -g haproxy haproxy
 RUN id haproxy
 
-ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy.cfg
+ADD Haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
 EXPOSE 3389
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["haproxy", "-f", "/usr/local/etc/haproxy.cfg"]
+CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
